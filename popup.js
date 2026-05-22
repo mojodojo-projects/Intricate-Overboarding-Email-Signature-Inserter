@@ -47,11 +47,11 @@ function isValidImageUrl(url) {
   }
 }
 
-// Mirrors what Gmail's "Best fit" button does: scales the image to 568px wide
+// Mirrors what Gmail's "Best fit" button does: scales the image to 562px wide
 // (or leaves it at natural size if smaller) and stamps an explicit height
 // based on the source aspect ratio. We need the natural dimensions to compute
 // that height, so preload + cache them per URL.
-const BEST_FIT_WIDTH = 568;
+const BEST_FIT_WIDTH = 562;
 const imageDimsCache = new Map();
 
 function loadImageDims(url) {
@@ -105,7 +105,7 @@ function buildSignatureHtml(sig) {
     );
   if (position) lines.push(`<p style="margin:0">${position}</p>`);
   if (isValidImageUrl(imageUrl)) {
-    // Match Gmail's "Best fit" output exactly: width="568", proportional
+    // Match Gmail's "Best fit" output exactly: width="562", proportional
     // height attribute (when we know the natural dims), and the same inline
     // styles Gmail applies. If natural dims haven't loaded yet, ship width
     // only — the browser will compute height from the loaded image's aspect
